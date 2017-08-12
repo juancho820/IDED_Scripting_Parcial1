@@ -27,10 +27,20 @@ public class Barrier : MonoBehaviour
 
     public void TakeDamage(RayBeam ray)
     {
+        currentHP -= ray.DamagePts;
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(Projectile projectile)
     {
+        currentHP -= projectile.DamagePts;
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Use this for initialization

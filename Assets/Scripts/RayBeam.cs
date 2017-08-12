@@ -2,6 +2,7 @@
 
 public class RayBeam : MonoBehaviour
 {
+
     [SerializeField]
     private float damage;
 
@@ -21,6 +22,16 @@ public class RayBeam : MonoBehaviour
 
     public void Fire()
     {
+        
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position, -transform.right);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform objectHit = hit.transform;
+                Destroy(gameObject);
+            }
+        
     }
 
     private void OnDrawGizmos()

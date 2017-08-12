@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameController : MonoBehaviour
     private Base base1;
     private Base base2;
     private Base activeBase;
+    Text text;
 
     private Vector3 targetLocation;
     private int totalTurns;
@@ -79,6 +81,8 @@ public class GameController : MonoBehaviour
         {
             ActiveBase = base1;
             totalTurns += 1;
+            text.text = "" + totalTurns;
+
         }
         else
         {
@@ -98,6 +102,7 @@ public class GameController : MonoBehaviour
     {
         instance = this;
         totalTurns = 0;
+        text = GetComponent<Text>();
     }
 
     private void OnDestroy()
